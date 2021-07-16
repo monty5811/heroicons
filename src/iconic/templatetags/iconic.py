@@ -1,29 +1,24 @@
 from django import template
 from django.utils.html import format_html
 
-import heroicons
+import iconic
 
 register = template.Library()
 
 
 @register.simple_tag
-def heroicon_outline(name, *, size=24, **kwargs):
-    return _heroicon("outline", name, size, **kwargs)
+def iconic_icon(name, *, size=24, **kwargs):
+    return _iconic(name, size, **kwargs)
 
 
-@register.simple_tag
-def heroicon_solid(name, *, size=20, **kwargs):
-    return _heroicon("solid", name, size, **kwargs)
-
-
-def _heroicon(style, name, size, **kwargs):
-    svg = heroicons.load_icon(style, name)
+def _iconic(name, size, **kwargs):
+    svg = iconic.load_icon(name)
     start = '<svg width="{}" height="{}" '
     if kwargs:
         start += " ".join(f'{name.replace("_", "-")}="{{}}"' for name in kwargs)
         start += " "
 
-    svg = svg.replace("<svg ", start, 1)
+    svg = svg.replace('<svg width="24" height="24" ', start, 1)
 
     # simple_tag's parsing loads passed strings as safe, but they aren't
     # Cast the SafeString's back to normal strings the only way possible, by

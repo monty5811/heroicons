@@ -1,21 +1,20 @@
 from jinja2 import DictLoader, Environment
 
-from heroicons.jinja import heroicon_outline, heroicon_solid
+from iconic.jinja import iconic_icon
 
 
 def make_environment(index_template):
     env = Environment(loader=DictLoader({"index": index_template}))
     env.globals.update(
         {
-            "heroicon_outline": heroicon_outline,
-            "heroicon_solid": heroicon_solid,
+            "iconic_icon": iconic_icon,
         }
     )
     return env
 
 
-def test_success_outline_simple():
-    env = make_environment('{{ heroicon_outline("academic-cap") }}')
+def test_success_simple():
+    env = make_environment('{{ iconic_icon("announcement") }}')
     template = env.get_template("index")
 
     result = template.render()
@@ -28,9 +27,9 @@ def test_success_outline_simple():
     assert result.endswith("</svg>\n")
 
 
-def test_success_outline_complete():
+def test_success_complete():
     env = make_environment(
-        '{{ heroicon_outline("academic-cap", size=48, class="h-4 w-4", '
+        '{{ iconic_icon("announcement", size=48, class="h-4 w-4", '
         + 'data_test="a < 2") }}'
     )
     template = env.get_template("index")
@@ -40,22 +39,6 @@ def test_success_outline_complete():
     assert result.startswith(
         '<svg width="48" height="48" class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" viewBox="0 0 24 24" stroke="currentColor">'
-    )
-    assert "<path" in result
-    assert result.endswith("</svg>\n")
-
-
-def test_success_solid():
-    env = make_environment(
-        '{{ heroicon_solid("academic-cap", size=40, class="h-4 w-4 inline") }}'
-    )
-    template = env.get_template("index")
-
-    result = template.render()
-
-    assert result.startswith(
-        '<svg width="40" height="40" class="h-4 w-4 inline" '
-        + 'viewBox="0 0 20 20" fill="currentColor">'
     )
     assert "<path" in result
     assert result.endswith("</svg>\n")

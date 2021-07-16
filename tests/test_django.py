@@ -11,16 +11,14 @@ settings.configure(
             "APP_DIRS": False,
         },
     ],
-    INSTALLED_APPS=["heroicons"],
+    INSTALLED_APPS=["iconic"],
 )
 urlpatterns = []
 django.setup()
 
 
-def test_success_outline_simple():
-    template = Template(
-        "{% load heroicons %}" + '{% heroicon_outline "academic-cap" %}'
-    )
+def test_success_simple():
+    template = Template("{% load iconic %}" + '{% iconic_icon "announcement" %}')
 
     result = template.render(Context())
 
@@ -32,10 +30,10 @@ def test_success_outline_simple():
     assert result.endswith("</svg>\n")
 
 
-def test_success_outline_complete():
+def test_success_complete():
     template = Template(
-        "{% load heroicons %}"
-        + '{% heroicon_outline "academic-cap" size=48 class="h-4 w-4" '
+        "{% load iconic %}"
+        + '{% iconic_icon "announcement" size=48 class="h-4 w-4" '
         + 'data_test="a < 2" %}'
     )
 
@@ -44,22 +42,6 @@ def test_success_outline_complete():
     assert result.startswith(
         '<svg width="48" height="48" class="h-4 w-4" data-test="a &lt; 2" '
         + 'fill="none" viewBox="0 0 24 24" stroke="currentColor">'
-    )
-    assert "<path" in result
-    assert result.endswith("</svg>\n")
-
-
-def test_success_solid():
-    template = Template(
-        "{% load heroicons %}"
-        + '{% heroicon_solid "academic-cap" size=40 class="h-4 w-4 inline" %}'
-    )
-
-    result = template.render(Context())
-
-    assert result.startswith(
-        '<svg width="40" height="40" class="h-4 w-4 inline" '
-        + 'viewBox="0 0 20 20" fill="currentColor">'
     )
     assert "<path" in result
     assert result.endswith("</svg>\n")

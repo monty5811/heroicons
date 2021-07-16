@@ -5,10 +5,10 @@ prune requirements
 include HISTORY.rst
 include LICENSE
 include README.rst
-include src/heroicons/heroicons.zip
+include src/iconic/iconicicons.zip
 exclude .editorconfig
 exclude .pre-commit-config.yaml
-exclude download_heroicons.py
+exclude download_icons.py
 include pyproject.toml
 exclude pytest.ini
 exclude tox.ini

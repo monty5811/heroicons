@@ -41,7 +41,7 @@ jobs:
     - name: Run tox targets for ${{ matrix.python-version }}
       run: tox --py current
 
-    - name: Upload coverage
-      run: |
-        coverage combine
-        codecov
+    # - name: Upload coverage
+    #   run: |
+    #     coverage combine
+    #     codecov

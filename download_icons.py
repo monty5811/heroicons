@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Download the latest heroicons zip file and select only the optimized icons.
+Download the latest iconicicons zip file and select only the icons.
 """
 import argparse
 import os
@@ -18,7 +18,7 @@ def main(args=None):
     version = args.version
 
     zip_url = (
-        f"https://github.com/tailwindlabs/heroicons/archive/refs/tags/v{version}.zip"
+        f"https://github.com/Make-Lemonade/iconicicons/archive/refs/tags/{version}.zip"
     )
     response = requests.get(zip_url)
     if response.status_code != 200:
@@ -26,9 +26,9 @@ def main(args=None):
         return 1
 
     input_zip = ZipFile(BytesIO(response.content))
-    input_prefix = f"heroicons-{version}/optimized/"
+    input_prefix = f"iconicicons-{version}/src/"
 
-    output_path = "src/heroicons/heroicons.zip"
+    output_path = "src/iconic/iconicicons.zip"
 
     try:
         os.remove(output_path)
@@ -37,14 +37,21 @@ def main(args=None):
     with ZipFile(
         output_path, "w", compression=ZIP_DEFLATED, compresslevel=9
     ) as output_zip:
+        n = 0
         for name in input_zip.namelist():
             if name.startswith(input_prefix) and name.endswith(".svg"):
                 data = input_zip.read(name)
+                data = data.replace(
+                    b'width="24" height="24" viewBox="0 0 24 24" fill="none"',
+                    b'width="24" height="24" fill="none" viewBox="0 0 24 24"'
+                    + b' stroke="currentColor"',
+                )
                 new_name = name[len(input_prefix) :]
                 output_zip.writestr(new_name, data)
                 print(new_name)
+                n += 1
 
-    print("\n✅ Written!")
+    print(f"\n✅ Written ({n=})!")
 
     return 0
 
