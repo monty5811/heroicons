@@ -2,11 +2,11 @@
 iconic
 ======
 
-.. image:: https://img.shields.io/github/workflow/status/monty5811/iconicapp-icons/CI/main?style=for-the-badge
-   :target: https://github.com/monty5811/iconicapp-icons/actions?workflow=CI
+.. image:: https://img.shields.io/github/workflow/status/monty5811/iconic/CI/main?style=for-the-badge
+   :target: https://github.com/monty5811/iconic/actions?workflow=CI
 
-.. image:: https://img.shields.io/codecov/c/github/monty5811/iconicapp-icons/main?style=for-the-badge
-   :target: https://app.codecov.io/gh/monty5811/iconicapp-icons
+.. image:: https://img.shields.io/codecov/c/github/monty5811/iconic/main?style=for-the-badge
+   :target: https://app.codecov.io/gh/monty5811/iconic
 
 .. image:: https://img.shields.io/pypi/v/iconicicons.svg?style=for-the-badge
    :target: https://pypi.org/project/iconicicons/
