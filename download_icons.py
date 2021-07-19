@@ -46,6 +46,10 @@ def main(args=None):
                     b'width="24" height="24" fill="none" viewBox="0 0 24 24"'
                     + b' stroke="currentColor"',
                 )
+                data = data.replace(
+                    b'stroke="#141414"',
+                    b'stroke="currentColor"',
+                )
                 new_name = name[len(input_prefix) :]
                 output_zip.writestr(new_name, data)
                 print(new_name)
