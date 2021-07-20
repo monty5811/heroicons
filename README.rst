@@ -29,7 +29,7 @@ Django 2.2 to 3.2 supported.
 
 ----
 
-This was forked from `adamchainz/heroicons <https://github.com/adamchainz/heroicons>`
+This was forked from `adamchainz/heroicons <https://github.com/adamchainz/heroicons>`_.
 
 **Are your tests slow?**
 Check out Adam's book `Speed Up Your Django Tests <https://gumroad.com/l/suydt>`__ which covers loads of best practices so you can write faster, more accurate tests.
