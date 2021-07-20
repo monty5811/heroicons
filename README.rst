@@ -8,8 +8,8 @@ iconic
 .. image:: https://img.shields.io/codecov/c/github/monty5811/iconic/main?style=for-the-badge
    :target: https://app.codecov.io/gh/monty5811/iconic
 
-.. image:: https://img.shields.io/pypi/v/iconicicons.svg?style=for-the-badge
-   :target: https://pypi.org/project/iconicicons/
+.. image:: https://img.shields.io/pypi/v/iconic.svg?style=for-the-badge
+   :target: https://pypi.org/project/iconic/
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
    :target: https://github.com/psf/black
