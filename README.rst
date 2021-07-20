@@ -80,7 +80,7 @@ For example, to render an outline “announcement” icon, at 48x48, with some e
 
 .. code-block:: django
 
-    {% iconic_icon "announcement" size=48 class="h-4 w-4 inline" data_controller="academia" %}
+    {% iconic_icon "announcement" size=48 class="h-4 w-4 inline" data_controller="announcement" %}
 
 Jinja templates
 ~~~~~~~~~~~~~~~
@@ -119,4 +119,4 @@ For example, to render an outline “announcement” icon, at 48x48, with some e
 
 .. code-block:: jinja
 
-    {% iconic("announcement", size=48, class="h-4 w-4 inline", data_controller="academia") %}
+    {% iconic("announcement", size=48, class="h-4 w-4 inline", data_controller="announcement") %}
